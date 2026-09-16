@@ -261,12 +261,14 @@ article h3 {
     margin-top: 0;
 }
 
-/* Tarjetas fluidas: personajes, lugares, controversias */
+/* --------------------------------------------------------------------------
+   TARJETAS
+   -------------------------------------------------------------------------- */
 .tarjeta {
     float: left;
     width: 31%;
-    min-width: 240px;
     margin: 1%;
+    min-height: 235px;
     background-color: #FFFDF8;
     border: 1px solid var(--color-borde);
     border-top: 4px solid var(--color-acento);
@@ -276,6 +278,8 @@ article h3 {
 
 .tarjeta h4 {
     color: var(--color-oscuro);
+    margin-top: 0;
+    margin-bottom: 8px;
 }
 
 .tarjeta .rol {
@@ -283,6 +287,21 @@ article h3 {
     color: var(--color-acento);
     margin-bottom: 8px;
     display: block;
+}
+/* --------------------------------------------------------------------------
+   DISTRIBUCIÓN DE TARJETAS
+   -------------------------------------------------------------------------- */
+
+/* Fuerza que cada grupo de tarjetas comience y termine correctamente */
+.tarjetas-grid {
+    width: 100%;
+}
+
+/* Limpia los float del grupo completo */
+.tarjetas-grid::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 /* --------------------------------------------------------------------------
