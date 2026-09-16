@@ -1,0 +1,599 @@
+/* ==========================================================================
+   J. ROBERT OPPENHEIMER: CIENCIA, EL ÁTOMO Y EL PODER
+   Hoja de estilos — Programación Web I
+   Maquetación fluida tradicional (sin Flexbox, sin Grid, sin Media Queries)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. VARIABLES DE COLOR Y MEDIDAS
+   -------------------------------------------------------------------------- */
+:root {
+    --color-fondo:        #F5F2EA;   /* crema de fondo general */
+    --color-fondo-alt:    #E9E3D4;   /* fondo de secciones alternas */
+    --color-oscuro:       #1B2230;   /* azul noche: header, nav, footer */
+    --color-oscuro-2:     #262F42;   /* variante para degradados suaves */
+    --color-acento:       #B8842B;   /* ámbar/dorado — acento principal */
+    --color-acento-claro: #D9A94E;   /* ámbar claro para hover */
+    --color-texto:        #23262B;   /* texto principal sobre fondo claro */
+    --color-texto-claro:  #F5F2EA;   /* texto sobre fondo oscuro */
+    --color-borde:        #C9C0A6;   /* bordes suaves */
+    --ancho-contenido:    1000px;    /* ancho máximo del contenido */
+}
+
+/* --------------------------------------------------------------------------
+   1. ESTILOS GENERALES
+   -------------------------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    /* Base de 62.5% para que 1rem = 10px, facilita los cálculos */
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-acento);
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+/* Clearfix tradicional: imprescindible al usar float en toda la página */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* --------------------------------------------------------------------------
+   2. TIPOGRAFÍA
+   -------------------------------------------------------------------------- */
+body {
+    font-family: Verdana, Geneva, Arial, sans-serif;
+    font-size: 1.6rem;
+}
+
+h1, h2, h3, h4 {
+    font-family: Verdana, Geneva, Arial, sans-serif;
+    color: var(--color-oscuro);
+    line-height: 1.3;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 3.4rem;
+    color: var(--color-texto-claro);
+    letter-spacing: 0.5px;
+}
+
+h2 {
+    font-size: 2.6rem;
+    border-bottom: 3px solid var(--color-acento);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 2rem;
+    color: var(--color-acento);
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 1.7rem;
+    margin-bottom: 6px;
+}
+
+p {
+    margin: 0 0 14px 0;
+    max-width: 75ch; /* mejora la legibilidad de párrafos largos */
+}
+
+.subtitulo {
+    font-size: 1.7rem;
+    color: var(--color-fondo-alt);
+    max-width: 65ch;
+}
+
+.cita-destacada {
+    font-size: 1.9rem;
+    font-style: italic;
+    color: var(--color-oscuro);
+    border-left: 4px solid var(--color-acento);
+    padding: 10px 20px;
+    background-color: var(--color-fondo-alt);
+    max-width: 70ch;
+}
+
+.nota-fuente {
+    font-size: 1.3rem;
+    color: #55524a;
+}
+
+/* --------------------------------------------------------------------------
+   3. HEADER
+   -------------------------------------------------------------------------- */
+header#inicio {
+    background-color: var(--color-oscuro);
+    background-image: linear-gradient(180deg, var(--color-oscuro) 0%, var(--color-oscuro-2) 100%);
+    color: var(--color-texto-claro);
+    padding: 60px 5% 40px 5%;
+    text-align: left;
+}
+
+header#inicio .contenedor-header {
+    width: 100%;
+    max-width: var(--ancho-contenido);
+    margin: 0 auto;
+}
+
+header#inicio .etiqueta-proyecto {
+    display: inline-block;
+    font-size: 1.3rem;
+    color: var(--color-acento-claro);
+    border: 1px solid var(--color-acento-claro);
+    padding: 4px 10px;
+    margin-bottom: 18px;
+}
+
+header#inicio .fechas-vida {
+    font-size: 1.8rem;
+    color: var(--color-acento-claro);
+    margin-top: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   4. NAVEGACIÓN
+   -------------------------------------------------------------------------- */
+nav {
+    background-color: var(--color-oscuro-2);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 3px solid var(--color-acento);
+    width: 100%;
+}
+
+nav .contenedor-nav {
+    width: 100%;
+    max-width: var(--ancho-contenido);
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+nav ul {
+    width: 100%;
+    padding: 6px 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 4px 2px;
+}
+
+nav a {
+    display: inline-block;
+    color: var(--color-texto-claro);
+    font-size: 1.3rem;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+}
+
+/* --------------------------------------------------------------------------
+   5. CONTENIDO PRINCIPAL
+   -------------------------------------------------------------------------- */
+main {
+    width: 100%;
+}
+
+main > section {
+    width: 100%;
+    padding: 50px 5%;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: var(--ancho-contenido);
+    margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   6. SECCIONES
+   -------------------------------------------------------------------------- */
+main > section:nth-of-type(odd) {
+    background-color: var(--color-fondo);
+}
+
+main > section:nth-of-type(even) {
+    background-color: var(--color-fondo-alt);
+}
+
+.intro-seccion {
+    max-width: 75ch;
+    margin-bottom: 24px;
+}
+
+/* Columnas fluidas de dos bloques (texto + tabla, texto + imagen, etc.) */
+.col-60 {
+    width: 100%;
+    max-width: 580px;
+    float: left;
+    margin-right: 3%;
+}
+
+.col-35 {
+    width: 100%;
+    max-width: 320px;
+    float: left;
+}
+
+/* --------------------------------------------------------------------------
+   7. ARTÍCULOS
+   -------------------------------------------------------------------------- */
+article {
+    background-color: #FFFDF8;
+    border: 1px solid var(--color-borde);
+    border-left: 5px solid var(--color-acento);
+    padding: 20px 24px;
+    margin-bottom: 22px;
+    width: 100%;
+}
+
+article h3 {
+    margin-top: 0;
+}
+
+/* Tarjetas fluidas: personajes, lugares, controversias */
+.tarjeta {
+    float: left;
+    width: 31%;
+    min-width: 240px;
+    margin: 1%;
+    background-color: #FFFDF8;
+    border: 1px solid var(--color-borde);
+    border-top: 4px solid var(--color-acento);
+    padding: 16px 18px;
+    vertical-align: top;
+}
+
+.tarjeta h4 {
+    color: var(--color-oscuro);
+}
+
+.tarjeta .rol {
+    font-size: 1.3rem;
+    color: var(--color-acento);
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* --------------------------------------------------------------------------
+   8. IMÁGENES
+   -------------------------------------------------------------------------- */
+figure {
+    margin: 0 0 20px 0;
+    width: 100%;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--color-borde);
+    padding: 4px;
+    background-color: #FFFDF8;
+}
+
+figcaption {
+    font-size: 1.3rem;
+    color: #55524a;
+    padding: 6px 4px 0 4px;
+    font-style: italic;
+}
+
+.figura-flotante-derecha {
+    float: right;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 0 16px 24px;
+}
+
+/* --------------------------------------------------------------------------
+   9. VIDEO
+   -------------------------------------------------------------------------- */
+.video-envoltorio {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 0;
+    padding-bottom: 45%; /* proporción 16:9 aproximada sobre el 100% de ancho */
+    margin: 0 auto 10px auto;
+    overflow: hidden;
+    border: 1px solid var(--color-borde);
+    background-color: #000;
+}
+
+.video-envoltorio iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   10. GALERÍA
+   -------------------------------------------------------------------------- */
+.galeria {
+    width: 100%;
+}
+
+.galeria figure {
+    float: left;
+    width: 31%;
+    min-width: 220px;
+    margin: 1%;
+}
+
+.galeria figure img {
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   11. PSEUDO-CLASES
+   -------------------------------------------------------------------------- */
+nav a:hover,
+nav a:focus {
+    background-color: var(--color-acento);
+    color: var(--color-oscuro);
+    border: 1px solid var(--color-acento-claro);
+}
+
+nav a:active {
+    background-color: var(--color-acento-claro);
+    color: var(--color-oscuro);
+}
+
+a:hover,
+a:focus {
+    color: var(--color-oscuro);
+    background-color: var(--color-acento-claro);
+}
+
+a:active {
+    color: #FFFDF8;
+    background-color: var(--color-acento);
+}
+
+.tarjeta:hover {
+    border-top: 4px solid var(--color-oscuro);
+    background-color: var(--color-fondo-alt);
+}
+
+.enlace-fuente:hover,
+.enlace-fuente:focus {
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   12. FOOTER
+   -------------------------------------------------------------------------- */
+footer#fuentes {
+    background-color: var(--color-oscuro);
+    color: var(--color-texto-claro);
+    padding: 40px 5% 20px 5%;
+    width: 100%;
+}
+
+footer#fuentes .contenedor {
+    max-width: var(--ancho-contenido);
+}
+
+footer#fuentes h2 {
+    color: var(--color-texto-claro);
+    border-bottom: 3px solid var(--color-acento);
+}
+
+footer#fuentes table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-oscuro-2);
+    margin-bottom: 20px;
+}
+
+footer#fuentes th,
+footer#fuentes td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    font-size: 1.3rem;
+    vertical-align: top;
+}
+
+footer#fuentes th {
+    color: var(--color-acento-claro);
+    border-bottom: 2px solid var(--color-acento);
+}
+
+footer#fuentes a {
+    color: var(--color-acento-claro);
+}
+
+.pie-final {
+    text-align: left;
+    font-size: 1.2rem;
+    color: #B9B4A6;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 14px;
+    margin-top: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   13. REGLAS DE FLUIDEZ (adaptación a móvil, tableta y escritorio)
+   -------------------------------------------------------------------------- */
+
+/* Todo el sistema de columnas usa porcentajes + min-width, de modo que los
+   bloques flotados se reacomodan de forma natural en pantallas angostas
+   sin necesidad de @media: cuando ya no cabe el min-width, el navegador
+   los baja de línea automáticamente. */
+
+.col-60,
+.col-35 {
+    min-width: 260px;
+}
+
+table {
+    max-width: 100%;
+}
+
+.tabla-datos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+.tabla-datos th,
+.tabla-datos td {
+    text-align: left;
+    padding: 10px 12px;
+    border: 1px solid var(--color-borde);
+    font-size: 1.4rem;
+}
+
+.tabla-datos th {
+    background-color: var(--color-oscuro);
+    color: var(--color-texto-claro);
+    width: 32%;
+}
+
+.tabla-cronologia {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-cronologia th,
+.tabla-cronologia td {
+    text-align: left;
+    padding: 10px 12px;
+    border: 1px solid var(--color-borde);
+    font-size: 1.35rem;
+}
+
+.tabla-cronologia th {
+    background-color: var(--color-oscuro);
+    color: var(--color-texto-claro);
+}
+
+.tabla-cronologia tr:nth-child(even) {
+    background-color: var(--color-fondo-alt);
+}
+
+/* Línea de tiempo visual (sección "cronología"), hecha solo con CSS
+   tradicional: una línea vertical (border-left) y marcadores con position. */
+.linea-tiempo {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding-left: 26px;
+    border-left: 3px solid var(--color-acento);
+}
+
+.linea-tiempo li {
+    position: relative;
+    padding: 0 0 30px 20px;
+}
+
+.linea-tiempo li::before {
+    content: "";
+    position: absolute;
+    left: -33px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    background-color: var(--color-acento);
+    border: 2px solid var(--color-fondo);
+    border-radius: 50%;
+}
+
+.linea-tiempo .fecha-hito {
+    display: inline-block;
+    font-weight: bold;
+    color: var(--color-acento);
+    margin-bottom: 4px;
+}
+
+/* Diagramas organizativos simples (Proyecto Manhattan, Los Álamos, AEC),
+   construidos con listas anidadas flotadas en vez de tablas de layout. */
+.organigrama {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.organigrama .nivel-superior {
+    display: inline-block;
+    background-color: var(--color-oscuro);
+    color: var(--color-texto-claro);
+    padding: 10px 18px;
+    margin-bottom: 18px;
+    border: 1px solid var(--color-acento);
+}
+
+.organigrama ul.ramas {
+    width: 100%;
+}
+
+.organigrama ul.ramas li {
+    display: inline-block;
+    width: 22%;
+    min-width: 150px;
+    vertical-align: top;
+    background-color: var(--color-fondo-alt);
+    border-top: 3px solid var(--color-acento);
+    padding: 10px;
+    margin: 0 1% 10px 1%;
+    font-size: 1.25rem;
+}
+
+.organigrama ul.ramas li strong {
+    display: block;
+    color: var(--color-oscuro);
+    margin-bottom: 4px;
+}
+
+/* Bloques de veredicto/resultado, usados en Trinity y Audiencia 1954 */
+.bloque-resultado {
+    background-color: var(--color-fondo-alt);
+    border: 1px dashed var(--color-acento);
+    padding: 14px 18px;
+    margin: 16px 0;
+    width: 100%;
+}
+
+/* Listas de control de calidad (fuentes: hechos confirmados / debate) */
+.lista-control li {
+    list-style: disc;
+    margin-left: 20px;
+    padding-left: 4px;
+    margin-bottom: 8px;
+}
